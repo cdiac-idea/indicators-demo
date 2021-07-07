@@ -2,6 +2,9 @@
  <div class="container-fluid">
     <services-sidebar></services-sidebar>
      <head-template></head-template>
+     <button @click="this.$router.push('/')">Curva de duración</button>
+     <button @click="this.$router.push('/aridez')">Indice de aridez</button>
+     <br><br>
     <div class="app"> 
       <router-view />
     </div>
@@ -13,13 +16,16 @@
 import footVue from './components/template_unal/foot.vue'
 import headVue from './components/template_unal/head.vue'
 import sidebarVue from './components/template_unal/head/sidebar.vue'
+
 export default {
   name:  'App',
   components:{
     'head-template' : headVue,
     'foot-template' : footVue,
     'services-sidebar' : sidebarVue
-  }
+  },
+methods:{
+}
 }
 </script>
 
