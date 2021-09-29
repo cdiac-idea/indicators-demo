@@ -1,0 +1,22 @@
+version: '3.5'
+services:
+   indicators-demo-web:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+            target: web
+        volumes:
+            - ${PROJECTFOLDER}:/usr/local/apache2/indicators-demo/
+            - ${DISTFOLDER}:/usr/local/apache2/htdocs/indicadores-demo  
+   build-stage:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+            target: build-stage 
+        volumes:
+            - ${PROJECTFOLDER}:/usr/src/app
+        command: sh /docker-entrypoint-initfront.d/entrypoint.sh      
+networks: 
+  default: 
+    name: idea 
+    external: true
